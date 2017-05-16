@@ -48,10 +48,11 @@ for i in range(len(tree_dict)):
         if type(node) != str:
             temp = str(tree_dict[node])
             tree_dict[i][temp] = tree_dict[i].pop(node)
-tree_str = str(tree_dict[i]).replace('\'', '').replace('\"', '').replace('\\', '').replace('{', '(').replace('}', ')')            
+tree_str = str(tree_dict[i]).replace('\'', '').replace('\"', '').replace('\\', '').replace('{', '(').replace('}', ')').replace(' ', '')
+tree_str += ";"            
 
 # Visualize Tree
 handle = StringIO(tree_str)
-tree = Phylo.read(tree_str, "newick")
+tree = Phylo.read(handle, 'newick')
 tree.ladderize()   # Flip branches so deeper clades are displayed at top
 Phylo.draw(tree)
