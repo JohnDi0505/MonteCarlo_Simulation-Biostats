@@ -72,7 +72,7 @@ def multiple_neuron_classification(input_cols, target_col, eta, iteration):
     return(accuracy, weights_variation)
 
 def accuracy_variation(accuracy_array):
-    curve, = plt.plot(accuracy_array, color='k', linewidth=3)
+    curve, = plt.plot(accuracy_array, color='k', linewidth=1)
     plt.xlim([-10, 1000])
     plt.title("Accuracy Variation: Multiple Neuron Classification")
     plt.xlabel("Iteration")
@@ -90,7 +90,8 @@ def weights_variation(weight_variation):
             curve, = plt.plot(weight_variation[neuron][weight],
                               label = neuron + ": " + weight,
                               color = color_platte[neuron_ix],
-                              linestyle = line_style[weight_ix], linewidth=3)
+                              linestyle = line_style[weight_ix], linewidth=1)
+            
     plt.legend(loc=2)
     plt.title("Variation of Weights: Multiple Neuron Classification")
     plt.xlabel("Iteration")
